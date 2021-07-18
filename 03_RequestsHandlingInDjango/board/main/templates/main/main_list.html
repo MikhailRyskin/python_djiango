@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<h2>Элементы.</h2>
+<ul>
+{% for choice in choices %}
+  <li>{{ choice }}</li>
+{% endfor %}
+</ul>
+<input type="text" name="input" value="ввод">
+<button>Найти</button>
+</body>
+</html>

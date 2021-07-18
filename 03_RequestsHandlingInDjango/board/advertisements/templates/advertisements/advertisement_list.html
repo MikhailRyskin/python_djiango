@@ -1,7 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Предложения</title>
+</head>
+<body>
+<h2>Предложения.</h2>
 <ul>
-    <li>Мастер на час</li>
-    <li>Выведение из запоя</li>
-    <li>Услуги экскаватора-погрузчика, гидромолота, ямобура</li>
+{% for advertisement in advertisements %}
+  <li>{{ advertisement }}</li>
+{% endfor %}
 </ul>
+<p>{{ count }} вызов метода GET</p>
+</body>
 </html>

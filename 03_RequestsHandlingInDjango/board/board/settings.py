@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'advertisements',
+    'contacts',
+    'about',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'board.middleware.logging_users.LoggerUsersMiddleware'
 ]
+
 
 ROOT_URLCONF = 'board.urls'
 
