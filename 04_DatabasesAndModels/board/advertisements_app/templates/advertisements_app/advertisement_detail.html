@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{object.title}}</title>
+</head>
+<body>
+<h3>{{ object.title }}</h3>
+<ul>
+    <li>Цена: {{ object.price }} руб.</li>
+    <li>{{ object.description}}</li>
+    <li>Рубрика: {{ object.rubric}}</li>
+    <li>Контактная информация: {{ object.author.name }}, e-mail:{{ object.author.email }},
+        тел: {{ object.author.phone }}</li>
+    <li>Количество просмотров: {{ object.views_count}}</li>
+</ul>
+<a href="{% url 'advertisements' %}">Вернуться к объявлениям</a>
+</body>
+</html>
