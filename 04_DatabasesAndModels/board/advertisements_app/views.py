@@ -1,3 +1,4 @@
+from django.db.models import F
 from django.views import generic
 from .models import Advertisement
 
@@ -14,6 +15,7 @@ class AdvertisementDetailView(generic.DetailView):
 
     def get_object(self, queryset=None):
         obj = super().get_object()
-        obj.views_count += 1
+        # obj.views_count += 1
+        obj.views_count = F('views_count') + 1
         obj.save()
         return obj
