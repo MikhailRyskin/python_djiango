@@ -18,4 +18,6 @@ class AdvertisementDetailView(generic.DetailView):
         # obj.views_count += 1
         obj.views_count = F('views_count') + 1
         obj.save()
+        obj.refresh_from_db()
         return obj
+

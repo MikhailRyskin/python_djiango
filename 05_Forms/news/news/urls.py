@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from app_news.views import NewFormView, NewEditFormView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app_news.urls'))
+    path('', include('app_news.urls')),
+    path('create/', NewFormView.as_view()),
+    path('create/<int:new_id>/edit/', NewEditFormView.as_view()),
 ]
