@@ -20,6 +20,6 @@ from app_news.views import NewFormView, NewEditFormView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_news.urls')),
-    path('create/', NewFormView.as_view()),
-    path('create/<int:new_id>/edit/', NewEditFormView.as_view()),
+    path('create/', NewFormView.as_view(), name='create'),
+    path('create/<int:new_id>/edit/', NewEditFormView.as_view(), name='edit'),
 ]

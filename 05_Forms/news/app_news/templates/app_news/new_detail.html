@@ -24,7 +24,7 @@
     <p>Пока нет комментариев.</p>
 {% endif %}
 <h5>Добавьте комментарий:</h5>
-<form method="post" action="/news/{{ new_id }}">
+<form method="post" action="{% url 'new-detail' new_id=new_id %}">
     {% csrf_token %}
     {{ new_comment.as_p }}
     <button type="submit">Добавить</button>

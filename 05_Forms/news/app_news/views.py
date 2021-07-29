@@ -38,6 +38,7 @@ class NewFormView(View):
 
     def get(self, request):
         new_form = NewForm()
+        return render(request, 'app_news/create.html', context={'new_form': new_form})
 
     def post(self, request):
         new_form = NewForm(request.POST)
