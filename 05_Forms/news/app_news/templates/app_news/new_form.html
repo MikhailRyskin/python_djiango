@@ -6,9 +6,9 @@
 </head>
 <body>
 <h2>Создание новости</h2>
-<form method="post" action="{% url 'create' %}">
+<form method="post">
     {% csrf_token %}
-    {{ new_form.as_p }}
+    {{ form.as_p }}
     <button type="submit">Создать</button>
 </form>
 </body>

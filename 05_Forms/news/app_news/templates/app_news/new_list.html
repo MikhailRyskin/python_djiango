@@ -5,6 +5,13 @@
     <title>Новости</title>
 </head>
 <body>
+{% if request.user.is_authenticated %}
+    <h3>Добро пожаловать на сайт {{ request.user.username }}</h3>
+    <a href="{% url 'logout' %}">Выйти из учётной записи</a>
+{% else %}
+    <h3>Вы не авторизованы на нашем сайте.</h3>
+    <a href="{% url 'login' %}">Войти</a>
+{% endif %}
 {% if news %}
 <ul>
 {% for one_news in news %}

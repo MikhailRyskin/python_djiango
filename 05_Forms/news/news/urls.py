@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('app_news.urls')),
     path('create/', NewFormView.as_view(), name='create'),
     path('create/<int:new_id>/edit/', NewEditFormView.as_view(), name='edit'),
+    path('users/', include('app_users.urls')),
 ]

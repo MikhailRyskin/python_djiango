@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class New(models.Model):
@@ -21,6 +22,7 @@ class New(models.Model):
 
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     what_new = models.ForeignKey('New', verbose_name='новость',
                                  default=None, null=True, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=50, verbose_name='имя пользователя')
