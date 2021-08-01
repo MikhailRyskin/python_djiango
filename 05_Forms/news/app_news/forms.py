@@ -16,8 +16,8 @@ class CommentForm(forms.ModelForm):
         fields = ['user_name', 'text']
  
         
-class CommentShortForm(forms.ModelForm):
-
-    class Meta:
-        model = Comment
-        fields = ['text']
+# class CommentShortForm(forms.ModelForm):
+#
+#     class Meta:
+#         model = Comment
+#         fields = ['text']

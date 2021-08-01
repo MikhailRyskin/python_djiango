@@ -25,7 +25,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     what_new = models.ForeignKey('New', verbose_name='новость',
                                  default=None, null=True, on_delete=models.CASCADE)
-    user_name = models.CharField(max_length=50, verbose_name='имя пользователя')
+    user_name = models.CharField(max_length=50, verbose_name='имя пользователя', blank=True)
     text = models.TextField(max_length=1000, default='', verbose_name='текст комментария')
 
     def __str__(self):

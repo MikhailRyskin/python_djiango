@@ -2,8 +2,9 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.views import View
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.forms import HiddenInput
 from .models import New, Comment
-from .forms import CommentForm, CommentShortForm
+from .forms import CommentForm
 
 
 class NewListView(ListView):
@@ -16,20 +17,16 @@ class NewDetailView(View):
     def get(self, request, new_id):
         new = New.objects.get(id=new_id)
         comments = Comment.objects.all().filter(what_new=new_id)
+        new_comment = CommentForm()
         if request.user.is_authenticated:
-            new_comment = CommentShortForm()
-        else:
-            new_comment = CommentForm()
+            new_comment.fields['user_name'].widget = HiddenInput()
         return render(request, 'app_news/new_detail.html', context={'new': new, 'comments': comments,
                                                                     'new_comment': new_comment, 'new_id': new_id})
 
     def post(self, request, new_id):
         new = New.objects.get(id=new_id)
         comments = Comment.objects.all().filter(what_new=new_id)
-        if request.user.is_authenticated:
-            new_comment = CommentShortForm(request.POST)
-        else:
-            new_comment = CommentForm(request.POST)
+        new_comment = CommentForm(request.POST)
         if new_comment.is_valid():
             if request.user.is_authenticated:
                 user = request.user
