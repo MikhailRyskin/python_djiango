@@ -12,7 +12,8 @@ class New(models.Model):
     content = models.TextField(max_length=20000, default='', verbose_name='содержание')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='дата публикации')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='дата изменения')
-    activity = models.BooleanField(default=True, choices=ACTIVITY_CHOICES, verbose_name='активность')
+    activity = models.BooleanField(default=False, choices=ACTIVITY_CHOICES, verbose_name='активность')
+    tag = models.CharField(max_length=12, blank=True, verbose_name='тэг')
 
     def __str__(self):
         return f'{self.title} {self.created_at} {"активна" if self.activity else "не активна"}'

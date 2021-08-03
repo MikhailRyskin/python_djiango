@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import New, Comment
-# Register your models here.
 
 
 class CommentInline(admin.TabularInline):
@@ -8,8 +7,9 @@ class CommentInline(admin.TabularInline):
 
 
 class NewAdmin(admin.ModelAdmin):
+    fields = ('title', 'content', 'tag')
     list_display = ('title', 'created_at', 'updated_at', 'activity')
-    list_filter = ['activity']
+    list_filter = ['created_at', 'tag']
     inlines = [CommentInline]
 
     actions = ['activate', 'deactivate']
