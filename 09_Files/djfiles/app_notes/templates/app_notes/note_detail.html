@@ -1,0 +1,18 @@
+<!--{% load static %}-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>заметка</title>
+</head>
+<body>
+<h3>заметка</h3>
+<p>{{ note.text}}</p>
+{% for img in images %}
+<p>{{img.image}}</p>
+<img src="{{img.image}}"
+     width="150" height="150" alt="красивое фото">
+{% endfor %}
+<a href="{% url 'notes' %}">Вернуться к заметкам</a>
+</body>
+</html>
