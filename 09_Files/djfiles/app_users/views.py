@@ -39,7 +39,7 @@ class AccountEditFormView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ('first_name', 'last_name')
     template_name = 'users/user_update_form.html'
     pk_url_kwarg = 'pk'
-    success_url = '/admin'
+    success_url = '/notes'
 
     def test_func(self):
         return self.request.user.id == int(self.kwargs['pk'])

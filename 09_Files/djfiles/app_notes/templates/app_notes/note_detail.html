@@ -1,4 +1,3 @@
-<!--{% load static %}-->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,8 +8,7 @@
 <h3>заметка</h3>
 <p>{{ note.text}}</p>
 {% for img in images %}
-<p>{{img.image}}</p>
-<img src="{{img.image}}"
+<img src="{{img.image.url}}"
      width="150" height="150" alt="красивое фото">
 {% endfor %}
 <a href="{% url 'notes' %}">Вернуться к заметкам</a>

@@ -3,7 +3,6 @@ from _csv import reader
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
-from django.views import View
 from django.http import HttpResponse
 from app_notes.forms import NoteForm, UploadNotesForm
 from app_notes.models import Note, NoteImage
@@ -21,15 +20,22 @@ def create_note(request):
             for img in images:
                 image = NoteImage(note=note, image=img)
                 image.save()
-            return redirect('/admin')
+            return redirect('/notes')
     else:
         form = NoteForm()
     return render(request, 'app_notes/note_form.html', {'form': form})
 
 
-class NoteListView(ListView):
-    context_object_name = 'notes'
-    queryset = Note.objects.order_by('-created_date')
+# class NoteListView(ListView):
+#     context_object_name = 'notes'
+#     queryset = Note.objects.order_by('-created_date')
+
+def note_list(request):
+    notes = Note.objects.order_by('-created_date')
+    for note in notes:
+        if len(note.text) > 30:
+            note.text = f'{note.text[:27]}...'
+    return render(request, 'app_notes/note_list.html', {'notes': notes})
 
 
 class NoteDetailView(DetailView):
