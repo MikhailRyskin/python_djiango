@@ -1,6 +1,7 @@
 from datetime import datetime
 from _csv import reader
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
@@ -20,15 +21,11 @@ def create_note(request):
             for img in images:
                 image = NoteImage(note=note, image=img)
                 image.save()
-            return redirect('/notes')
+            return redirect(reverse('notes'))
     else:
         form = NoteForm()
     return render(request, 'app_notes/note_form.html', {'form': form})
 
-
-# class NoteListView(ListView):
-#     context_object_name = 'notes'
-#     queryset = Note.objects.order_by('-created_date')
 
 def note_list(request):
     notes = Note.objects.order_by('-created_date')
