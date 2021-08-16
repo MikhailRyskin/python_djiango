@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-15 15:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%"
+"100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_notes\apps.py:7 .\app_notes\models.py:13
+#: .\app_notes\templates\app_notes\note_list.html:4
+msgid "notes"
+msgstr "заметки"
+
+#: .\app_notes\forms.py:6
+msgid "note text"
+msgstr "текст заметки"
+
+#: .\app_notes\forms.py:8
+msgid "select file"
+msgstr "выберите файл"
+
+#: .\app_notes\models.py:7 .\app_users\templates\users\user_detail.html:8
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_notes\models.py:8
+msgid "text"
+msgstr "текст"
+
+#: .\app_notes\models.py:9
+msgid "created date"
+msgstr "дата создания"
+
+#: .\app_notes\models.py:10
+msgid "publication date"
+msgstr "дата публикации"
+
+#: .\app_notes\models.py:14 .\app_notes\templates\app_notes\note_detail.html:4
+#: .\app_notes\templates\app_notes\note_detail.html:7
+msgid "note"
+msgstr "заметка"
+
+#: .\app_notes\templates\app_notes\note_detail.html:13
+msgid "back to notes"
+msgstr "вернуться к заметкам"
+
+#: .\app_notes\templates\app_notes\note_form.html:4
+#: .\app_notes\templates\app_notes\note_form.html:7
+msgid "create note"
+msgstr "создать заметку"
+
+#: .\app_notes\templates\app_notes\note_form.html:11
+msgid "create"
+msgstr "создать"
+
+#: .\app_notes\templates\app_notes\note_list.html:8
+msgid "Welcome to the site"
+msgstr "Добро пожаловать на сайт."
+
+#: .\app_notes\templates\app_notes\note_list.html:9
+msgid "log out"
+msgstr "выйти из учётной записи"
+
+#: .\app_notes\templates\app_notes\note_list.html:11
+msgid "You are not logged in."
+msgstr "Вы не авторизованы."
+
+#: .\app_notes\templates\app_notes\note_list.html:12
+#: .\app_users\templates\users\login.html:4
+#: .\app_users\templates\users\login.html:11
+msgid "login"
+msgstr "Войти."
+
+#: .\app_notes\templates\app_notes\note_list.html:20
+msgid "more detail..."
+msgstr "подробнее..."
+
+#: .\app_notes\templates\app_notes\note_list.html:25
+msgid "No notes"
+msgstr "Заметок нет."
+
+#: .\app_notes\templates\app_notes\upload_notes.html:4
+#: .\app_notes\templates\app_notes\upload_notes.html:11
+msgid "upload file"
+msgstr "загрузить файл"
+
+#: .\app_notes\templates\app_notes\upload_notes.html:7
+msgid "upload file with notes"
+msgstr "загрузка файла с заметками"
+
+#: .\app_notes\views.py:60
+msgid "Notes entered into the database"
+msgstr "Заметки занесены в базу"
+
+#: .\app_users\forms.py:8 .\app_users\templates\users\user_detail.html:9
+msgid "first name"
+msgstr "имя"
+
+#: .\app_users\forms.py:9 .\app_users\templates\users\user_detail.html:10
+msgid "last name"
+msgstr "фамилия"
+
+#: .\app_users\forms.py:11 .\app_users\templates\users\user_detail.html:11
+msgid "about"
+msgstr "о себе"
+
+#: .\app_users\templates\users\login.html:7
+msgid "Login page"
+msgstr "Страница регистрации"
+
+#: .\app_users\templates\users\logout.html:4
+msgid "logout"
+msgstr "выйти из учётной записи"
+
+#: .\app_users\templates\users\logout.html:7
+msgid "Logout"
+msgstr "выйти из учётной записи"
+
+#: .\app_users\templates\users\logout.html:8
+msgid "You are logget out."
+msgstr "Вы не авторизованы."
+
+#: .\app_users\templates\users\logout.html:9
+msgid "Login"
+msgstr "Войти."
+
+#: .\app_users\templates\users\register.html:4
+msgid "registration"
+msgstr "регистрация"
+
+#: .\app_users\templates\users\register.html:7
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\app_users\templates\users\register.html:11
+msgid "Sign up"
+msgstr "Подписать"
+
+#: .\app_users\templates\users\user_detail.html:7
+msgid "Account"
+msgstr "Аккаунт"
+
+#: .\app_users\templates\users\user_update_form.html:4
+#: .\app_users\templates\users\user_update_form.html:7
+msgid "Account editing"
+msgstr "Редактирование аккаунта"
+
+#: .\app_users\templates\users\user_update_form.html:11
+msgid "Save"
+msgstr "Сохранить"
+
+#, fuzzy
+#~| msgid "last name"
+#~ msgid "last_name"
+#~ msgstr "фамилия"

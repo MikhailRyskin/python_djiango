@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Заметки</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "notes" %}{% endblock %}
+
+{% block content %}
 {% if request.user.is_authenticated %}
-    <h3>Добро пожаловать на сайт {{request.user.first_name}}</h3>
-    <a href="{% url 'logout' %}">Выйти из учётной записи</a>
+    <h3>{% trans "Welcome to the site" %} {{request.user.first_name}}</h3>
+    <a href="{% url 'logout' %}">{% trans "log out" %}</a>
 {% else %}
-    <h3>Вы не авторизованы на нашем сайте.</h3>
-    <a href="{% url 'login' %}">Войти</a>
+    <h3>{% trans "You are not logged in." %}</h3>
+    <a href="{% url 'login' %}">{% trans "login" %}</a>
 {% endif %}
 {% if notes %}
 <ul>
@@ -18,12 +17,11 @@
   <li>
     <p>{{note.user.username}}</p>
     <p>{{note.text}}</p>
-    <a href="{% url 'note_detail' pk=note.id %}">подробнее...</a>
+    <a href="{% url 'note_detail' pk=note.id %}">{% trans "more detail..." %}</a>
   </li>
 {% endfor %}
 </ul>
 {% else %}
-    <p>Заметок нет.</p>
+    <p>{% trans "No notes" %}</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}

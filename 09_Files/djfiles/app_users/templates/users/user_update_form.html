@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Редактирование аккаунта</title>
-</head>
-<body>
-<h2>Редактирование аккаунта</h2>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Account editing" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Account editing" %}</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Сохранить</button>
+    <button type="submit">{% trans "Save" %}</button>
 </form>
-</body>
-</html>
+{% endblock %}

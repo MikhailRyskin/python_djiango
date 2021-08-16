@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Logout</title>
-</head>
-<body>
-<h2>Logout</h2>
-<p>Вы успешно вышли из своей учётной записи</p>
-<a href="{% url 'login' %}">Войти</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "logout" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Logout" %}</h2>
+<p>{% trans "You are logget out." %}</p>
+<a href="{% url 'login' %}">{% trans "Login" %}</a>
+{% endblock %}

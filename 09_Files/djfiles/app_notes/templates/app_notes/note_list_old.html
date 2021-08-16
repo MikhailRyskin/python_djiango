@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заметки</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <h3>Добро пожаловать на сайт {{request.user.first_name}}</h3>
+    <a href="{% url 'logout' %}">Выйти из учётной записи</a>
+{% else %}
+    <h3>Вы не авторизованы на нашем сайте.</h3>
+    <a href="{% url 'login' %}">Войти</a>
+{% endif %}
+{% if notes %}
+<ul>
+{% for note in notes %}
+  <li>
+    <p>{{note.user.username}}</p>
+    <p>{{note.text}}</p>
+    <a href="{% url 'note_detail' pk=note.id %}">подробнее...</a>
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>Заметок нет.</p>
+{% endif %}
+</body>
+</html>

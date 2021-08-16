@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
+from django.utils.translation import gettext as _
 from app_notes.forms import NoteForm, UploadNotesForm
 from app_notes.models import Note, NoteImage
 
@@ -52,11 +53,11 @@ def load_notes(request):
         if upload_file_form.is_valid():
             notes_file = upload_file_form.cleaned_data['file'].read()
             notes_str = notes_file.decode('utf-8').split('\n')
-            csv_reader = reader(notes_str, delimiter=":", quotechar='"')
+            csv_reader = reader(notes_str, delimiter=";", quotechar='"')
             for row in csv_reader:
                 Note.objects.create(user=request.user, text=row[0],
                                     publication_date=datetime.strptime(row[1], "%d.%m.%Y"))
-            return HttpResponse(content=f'Заметки занесены в базу', status=200)
+            return HttpResponse(content=_('Notes entered into the database'), status=200)
     else:
         upload_file_form = UploadNotesForm()
     context = {

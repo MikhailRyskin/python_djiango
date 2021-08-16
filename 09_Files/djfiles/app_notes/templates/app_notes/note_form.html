@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Создание заметки</title>
-</head>
-<body>
-<h2>Создание заметки</h2>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "create note" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "create note" %}</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Создать</button>
+    <button type="submit">{% trans "create" %}</button>
 </form>
-</body>
-</html>
+{% endblock %}

@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>заметка</title>
-</head>
-<body>
-<h3>заметка</h3>
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "note" %}{% endblock %}
+
+{% block content %}
+<h3>{% trans "note" %}</h3>
 <p>{{ note.text}}</p>
 {% for img in images %}
 <img src="{{img.image.url}}"
-     width="150" height="150" alt="красивое фото">
+     width="150" height="150" alt="photo">
 {% endfor %}
-<a href="{% url 'notes' %}">Вернуться к заметкам</a>
-</body>
-</html>
+<a href="{% url 'notes' %}">{% trans "back to notes" %}</a>
+{% endblock %}
