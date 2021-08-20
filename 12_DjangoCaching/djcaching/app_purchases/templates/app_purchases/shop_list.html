@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "shops" %}{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <h3>{% trans "Welcome to the site" %} {{request.user.first_name}}</h3>
+    <a href="{% url 'logout' %}">{% trans "log out" %}</a>
+{% else %}
+    <h3>{% trans "You are not logged in." %}</h3>
+    <a href="{% url 'login' %}">{% trans "login" %}</a>
+{% endif %}
+
+{% load cache %}
+{% cache 30 all_shops %}
+<h2>{% trans "shops" %}</h2>
+{% if shops %}
+<ul>
+{% for shop in shops %}
+  <li>
+    {{ shop.shop_name }}
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>{% trans "no shops" %}</p>
+{% endif %}
+{% endcache %}
+
+{% endblock %}

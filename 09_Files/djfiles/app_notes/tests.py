@@ -1,6 +1,7 @@
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
+
 from django.contrib.auth.models import User
 from .models import Note, NoteImage
 
@@ -30,7 +31,6 @@ class NotesViewTest(TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertTemplateUsed(response, 'app_notes/note_detail.html')
             self.assertContains(response, f'какой-то текст {item_index} ещё текст')
-
 
 class NoteCreateTest(TestCase):
     @classmethod

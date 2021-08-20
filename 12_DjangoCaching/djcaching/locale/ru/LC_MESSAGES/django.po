@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-19 17:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%"
+"100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_purchases\apps.py:7 .\app_purchases\models.py:36
+#: .\app_users\templates\users\user_detail.html:31
+msgid "purchases"
+msgstr "покупки"
+
+#: .\app_purchases\models.py:7
+msgid "shop_name"
+msgstr "название магазина"
+
+#: .\app_purchases\models.py:10
+#: .\app_purchases\templates\app_purchases\shop_list.html:4
+#: .\app_purchases\templates\app_purchases\shop_list.html:14
+msgid "shops"
+msgstr "магазины"
+
+#: .\app_purchases\models.py:11
+msgid "shop"
+msgstr "магазин"
+
+#: .\app_purchases\models.py:15 .\app_purchases\models.py:19
+msgid "promotion"
+msgstr "акция"
+
+#: .\app_purchases\models.py:18
+#: .\app_users\templates\users\user_detail.html:11
+msgid "promotions"
+msgstr "акции"
+
+#: .\app_purchases\models.py:23 .\app_purchases\models.py:32
+#: .\app_users\templates\users\user_detail.html:8
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_purchases\models.py:24 .\app_purchases\models.py:28
+msgid "offer"
+msgstr "предложение"
+
+#: .\app_purchases\models.py:27
+#: .\app_users\templates\users\user_detail.html:20
+msgid "offers"
+msgstr "предложения"
+
+#: .\app_purchases\models.py:33 .\app_purchases\models.py:37
+msgid "purchase"
+msgstr "покупки"
+
+#: .\app_purchases\templates\app_purchases\shop_list.html:8
+msgid "Welcome to the site"
+msgstr "Добро пожаловать на сайт"
+
+#: .\app_purchases\templates\app_purchases\shop_list.html:9
+msgid "log out"
+msgstr "выйти из учётной записи"
+
+#: .\app_purchases\templates\app_purchases\shop_list.html:11
+msgid "You are not logged in."
+msgstr "Вы не авторизованы"
+
+#: .\app_purchases\templates\app_purchases\shop_list.html:12
+#: .\app_users\templates\users\login.html:4
+#: .\app_users\templates\users\login.html:11
+msgid "login"
+msgstr "Войти"
+
+#: .\app_purchases\templates\app_purchases\shop_list.html:24
+msgid "no shops"
+msgstr "магазинов нет"
+
+#: .\app_users\forms.py:8
+msgid "first name"
+msgstr "имя"
+
+#: .\app_users\forms.py:9
+msgid "last name"
+msgstr "фамилия"
+
+#: .\app_users\forms.py:11 .\app_users\models.py:8
+#: .\app_users\templates\users\user_detail.html:9
+msgid "balance"
+msgstr "баланс"
+
+#: .\app_users\templates\users\login.html:7
+msgid "Login page"
+msgstr "Страница входа"
+
+#: .\app_users\templates\users\logout.html:4
+msgid "logout"
+msgstr "выйти из учётной записи"
+
+#: .\app_users\templates\users\logout.html:7
+msgid "Logout"
+msgstr "Выйти из учётной записи"
+
+#: .\app_users\templates\users\logout.html:8
+msgid "You are logget out."
+msgstr "Вы не авторизованы"
+
+#: .\app_users\templates\users\logout.html:9
+msgid "Login"
+msgstr "Войти"
+
+#: .\app_users\templates\users\register.html:4
+msgid "registration"
+msgstr "регистрация"
+
+#: .\app_users\templates\users\register.html:7
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\app_users\templates\users\register.html:11
+msgid "Sign up"
+msgstr "Подписать"
+
+#: .\app_users\templates\users\user_detail.html:7
+msgid "Account"
+msgstr "Аккаунт"
+
+#: .\app_users\views.py:57
+msgid "No access to account"
+msgstr "Нет доступа к аккаунту"

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{user.username}}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Account" %}</h2>
+<h4>{% trans "user" %}: {{user.username}}</h4>
+<p>{% trans "balance" %}: {{user.profile.balance}}</p>
+
+<h4>{% trans "promotions" %}</h4>
+<ul>
+{% for promotion in promotions %}
+  <li>
+    {{ promotion.promotion }}
+  </li>
+{% endfor %}
+</ul>
+
+<h4>{% trans "offers" %}</h4>
+<ul>
+{% for offer in offers %}
+  <li>
+    {{ offer.offer }}
+  </li>
+{% endfor %}
+</ul>
+
+{% load cache %}
+{% cache 30 all_purchases %}
+<h4>{% trans "purchases" %}</h4>
+<ul>
+{% for purchase in purchases %}
+  <li>
+    {{ purchase.purchase }}
+  </li>
+{% endfor %}
+</ul>
+{% endcache %}
+
+{% endblock %}
