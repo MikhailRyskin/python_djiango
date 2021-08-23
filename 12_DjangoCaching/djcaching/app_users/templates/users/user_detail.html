@@ -27,7 +27,7 @@
 </ul>
 
 {% load cache %}
-{% cache 30 all_purchases user.username %}
+{% cache 30 all_purchases user.pk %}
 <h4>{% trans "purchases" %}</h4>
 <ul>
 {% for purchase in purchases %}
