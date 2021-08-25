@@ -35,13 +35,17 @@ class BookList(ListCreateAPIView):
             title = self.request.query_params.get('title')
             if title:
                 queryset = queryset.filter(title=title)
-            number_of_pages = self.request.query_params.get('number_of_pages')
-            if number_of_pages:
-                queryset = queryset.filter(number_of_pages=number_of_pages)
-
+            operation= self.request.query_params.get('operation')
+            page = self.request.query_params.get('page')
+            if operation and page:
+                numbers_pages_filters = {
+                    'exact': queryset.filter(number_of_pages__exact=page),
+                    'gt': queryset.filter(number_of_pages__gt=page),
+                    'lt':  queryset.filter(number_of_pages__lt=page),
+                }
+                if operation in numbers_pages_filters:
+                    queryset = numbers_pages_filters[operation]
         return queryset
-
-
 
 
 class BookDetail(RetrieveUpdateDestroyAPIView):
