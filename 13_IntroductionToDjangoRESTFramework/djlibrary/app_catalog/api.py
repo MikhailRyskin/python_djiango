@@ -4,7 +4,8 @@ from app_catalog.serializers import AuthorSerializer, BookSerializer
 
 
 class AuthorList(ListCreateAPIView):
-    # queryset = Author.objects.all()
+    """Представление для получения списка авторов и создания нового автора.
+       Возможна фильтрация по фамилии автора."""
     serializer_class = AuthorSerializer
 
     def get_queryset(self):
@@ -16,12 +17,16 @@ class AuthorList(ListCreateAPIView):
 
 
 class AuthorDetail(RetrieveUpdateDestroyAPIView):
+    """Представление для получения детальной информации об авторе,
+         а также для редактирования и удаления"""
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
 
 class BookList(ListCreateAPIView):
-    # queryset = Book.objects.all()
+    """Представление для получения списка книг и создания новой книги.
+        Возможна фильтрация по фамилии автора и названию книги,
+        по количеству страниц(меньше, равно, больше"""
     serializer_class = BookSerializer
 
     def get_queryset(self):
@@ -49,5 +54,7 @@ class BookList(ListCreateAPIView):
 
 
 class BookDetail(RetrieveUpdateDestroyAPIView):
+    """Представление для получения детальной информации о книге,
+             а также для редактирования и удаления"""
     queryset = Book.objects.all()
     serializer_class = BookSerializer
