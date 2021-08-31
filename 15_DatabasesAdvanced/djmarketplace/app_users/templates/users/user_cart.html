@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+<h3>{{ item }}</h3>
+<p>Пользователь: {{ user.username }}</p>
+{% if items %}
+<ul>
+{% for item in items %}
+  <li>
+      <p>товар: {{ item.item }} цена:  {{ item.item.price }} </p>
+  </li>
+{% endfor %}
+</ul>
+<p>общая сумма: {{ total_amount }}</p>
+{% if user.profile.balance >= total_amount %}
+<form method="post" action="{% url 'cart' pk=user.pk %}">
+    {% csrf_token %}
+    <button type="submit">Оплатить</button>
+</form>
+{% else %}
+    <p>Средств на балансе не хватает для оплаты. Пополните баланс.</p>
+    <a href="{% url 'add_balance' pk=user.pk %}">Пополнение баланса</a>
+{% endif %}
+{% else %}
+    <p>Корзина пуста.</p>
+{% endif %}
+<br>
+<a href="{% url 'items' %}">Вернуться к товарам</a>
+</body>
+</html>

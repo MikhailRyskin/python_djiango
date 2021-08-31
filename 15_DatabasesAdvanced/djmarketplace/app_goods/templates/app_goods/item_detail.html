@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{item.name}}</title>
+</head>
+<body>
+<h3>{{ item }}</h3>
+<p>Магазин: {{ item.shop }}</p>
+<p>Описание: {{ item.description }}</p>
+<p>Цена: {{ item.price }}</p>
+<form method="post" action="{% url 'item_detail' pk=item.pk %}">
+    {% csrf_token %}
+<!--    {{ new_comment.as_p }}-->
+    <button type="submit">Добавить в корзину</button>
+</form>
+<!--<button type="button">Добавить в корзину</button>-->
+<a href="{% url 'items' %}">Вернуться к товарам</a>
+</body>
+</html>
