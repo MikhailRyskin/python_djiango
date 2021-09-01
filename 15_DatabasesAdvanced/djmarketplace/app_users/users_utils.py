@@ -1,15 +1,14 @@
-def find_status(balance):
-    if balance < 100:
+SILVER = 500
+GOLD = 1000
+
+
+def change_status(amount_purchases):
+    if amount_purchases < SILVER:
         status = 'обычный'
-    elif balance < 500:
+    elif amount_purchases < GOLD:
         status = 'серебряный'
     else:
         status = 'золотой'
     return status
 
 
-def increase_balance(profile, add_to_balance):
-    profile.balance += add_to_balance
-    new_status = find_status(profile.balance)
-    profile.status = new_status
-    profile.save()

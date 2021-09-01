@@ -7,6 +7,8 @@
 <body>
 {% if request.user.is_authenticated %}
     <h3>Добро пожаловать на сайт {{ request.user.username }}</h3>
+    <a href="{% url 'account' pk=request.user.pk %}">Перейти в личный кабинет</a>
+    <br>
     <a href="{% url 'logout' %}">Выйти из учётной записи</a>
 {% else %}
     <h3>Вы не авторизованы на нашем сайте.</h3>
@@ -17,8 +19,8 @@
 <ul>
 {% for item in items %}
   <li>
-    <a href="{% url 'item_detail' pk=item.pk %}">{{ item }}</a>
-    <p>Магазин: {{ item.shop }}</p>
+    <a href="{% url 'item_detail' pk=item.pk %}">{{item.name}} артикул: {{item.pk}}</a>
+    <p>Магазин: {{ item.shop.name }}</p>
   </li>
 {% endfor %}
 </ul>

@@ -23,12 +23,12 @@
 </form>
 {% else %}
     <p>Средств на балансе не хватает для оплаты. Пополните баланс.</p>
-    <a href="{% url 'add_balance' pk=user.pk %}">Пополнение баланса</a>
+    <a href="{% url 'add_balance' pk=user.pk %}">пополнение баланса</a>
 {% endif %}
 {% else %}
     <p>Корзина пуста.</p>
 {% endif %}
 <br>
-<a href="{% url 'items' %}">Вернуться к товарам</a>
+<a href="{% url 'items' %}">вернуться к товарам</a>
 </body>
 </html>

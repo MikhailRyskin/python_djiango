@@ -12,5 +12,6 @@
     {{ form.as_p }}
     <button type="submit">Пополнить</button>
 </form>
+<a href="{% url 'account' pk=request.user.pk %}">вернуться в личный кабинет</a>
 </body>
 </html>

@@ -14,12 +14,12 @@ class Item(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE, verbose_name='магазин')
     name = models.CharField(max_length=200, verbose_name='название')
     description = models.TextField(blank=True, verbose_name='описание')
-    price = models.FloatField(blank=True, default=0, verbose_name='цена')
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, default=0, verbose_name='цена')
     number_on_sale = models.PositiveIntegerField(blank=True, default=0, verbose_name='количество в продаже')
     number_of_sold = models.PositiveIntegerField(blank=True, default=0, verbose_name='количество проданных')
 
     def __str__(self):
-        return f'{self.name} артикул: {self.id}'
+        return f'{self.name} артикул: {self.pk}'
 
 
 class ItemInstance(models.Model):
