@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+</head>
+<body>
+<h3>Статистика</h3>
+<p>за период с {{date_from}} по {{date_to}} </p>
+{% if items %}
+<ul>
+{% for item in items %}
+  <li>
+      <p>артикул: {{item.pk}} наименование: {{item.name}} количество продаж: {{item.total_sales}}</p>
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>Нет статистики.</p>
+{% endif %}
+<br>
+<a href="{% url 'items' %}">вернуться к товарам</a>
+</body>
+</html>

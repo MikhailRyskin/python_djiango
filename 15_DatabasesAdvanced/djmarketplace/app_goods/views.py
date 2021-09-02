@@ -1,10 +1,12 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.db import transaction
+from django.db.models import Count, Q
 from django.urls import reverse
 from django.views import View
 from django.views.generic import ListView
 from .models import Item, ItemInstance
+from .forms import PeriodForm
 
 
 class ItemListView(ListView):
@@ -30,3 +32,23 @@ class ItemDetailView(View):
             item.save()
 
         return HttpResponseRedirect(reverse('items'))
+
+
+class StatisticsView(View):
+    def get(self, request):
+        form = PeriodForm()
+        return render(request, 'app_goods/period_form.html', {'form': form})
+
+    def post(self, request):
+        form = PeriodForm(request.POST)
+        if form.is_valid():
+            date_from = form.cleaned_data.get('date_from')
+            date_to = form.cleaned_data.get('date_to')
+            # items = Item.objects.annotate(total_sales=Count('instances')).order_by('-total_sales')
+            items = Item.objects.annotate(total_sales=Count('instances',
+                                                        filter=Q(instances__status='продано',
+                                                        instances__date_of_sale__gte=date_from,
+                                                        instances__date_of_sale__lte=date_to))).order_by('-total_sales')
+            return render(request, 'app_goods/period_statistics.html', {'date_from': date_from, 'date_to': date_to,
+                                                                        'items': items})
+        return render(request, 'app_goods/period_form.html', {'form': form})

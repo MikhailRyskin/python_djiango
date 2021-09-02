@@ -24,7 +24,7 @@ class Item(models.Model):
 
 class ItemInstance(models.Model):
     """Модель экземпляра товара"""
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name='товар')
+    item = models.ForeignKey(Item, related_name='instances', on_delete=models.CASCADE, verbose_name='товар')
     buyer_pk = models.IntegerField(default=0, verbose_name='в чьей корзине')
     status = models.CharField(max_length=20,  blank=True, default='в продаже', verbose_name='статус')
     date_of_sale = models.DateField(blank=True, null=True)
