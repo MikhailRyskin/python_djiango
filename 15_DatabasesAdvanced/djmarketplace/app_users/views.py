@@ -1,10 +1,14 @@
 import datetime
+import logging
+from time import asctime
+
+from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login
 from django.db.models import F
 from django.db import transaction
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.views.generic import DetailView
@@ -14,6 +18,9 @@ from .models import Profile
 from app_goods.models import ItemInstance, Item
 from .forms import RegisterForm, ProfileForm
 from app_users.users_utils import change_status
+
+
+logger = logging.getLogger(__name__)
 
 
 class RegisterView(View):
@@ -45,7 +52,13 @@ class AccountDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
 
 class AnotherLoginView(LoginView):
+    # logger.info(f'{asctime()} user authentication')
     template_name = 'users/login.html'
+
+    def get_success_url(self):
+        url = self.get_redirect_url()
+        logger.info(f'{asctime()} user:{self.request.user.username} authentication')
+        return url or resolve_url(settings.LOGIN_REDIRECT_URL)
 
 
 class AnotherLogoutView(LogoutView):
@@ -69,6 +82,7 @@ class BalanceView(LoginRequiredMixin, UserPassesTestMixin, View):
             user.profile.balance = F('balance') + add_to_balance
             user.profile.save()
 
+            logger.info(f'{asctime()} user:{user.username} refill balance on {add_to_balance}')
             return redirect('account', pk=user.pk)
         return render(request, 'users/balance_form.html', {'form': form})
 
@@ -107,7 +121,11 @@ class CartView(LoginRequiredMixin, UserPassesTestMixin, View):
             Item.objects.bulk_update(bought_items, ['number_of_sold'])
             user.profile.balance -= total_amount
             user.profile.amount_purchases += total_amount
+            previous_status = user.profile.status
             user.profile.status = change_status(user.profile.amount_purchases)
             user.profile.save()
 
+        logger.info(f'{asctime()} user:{user.username} decrease balance {total_amount}')
+        if previous_status != user.profile.status:
+            logger.info(f'{asctime()} user:{user.username} change of status to {user.profile.status}')
         return HttpResponseRedirect(reverse('items'))

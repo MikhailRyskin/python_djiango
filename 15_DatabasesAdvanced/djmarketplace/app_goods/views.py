@@ -1,3 +1,5 @@
+import logging
+from time import asctime
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.db import transaction
@@ -7,6 +9,8 @@ from django.views import View
 from django.views.generic import ListView
 from .models import Item, ItemInstance
 from .forms import PeriodForm
+
+logger = logging.getLogger(__name__)
 
 
 class ItemListView(ListView):
@@ -31,6 +35,7 @@ class ItemDetailView(View):
             item.number_on_sale -= 1
             item.save()
 
+        logger.info(f'{asctime()} user:{user.username} added to cart {item.name}')
         return HttpResponseRedirect(reverse('items'))
 
 
