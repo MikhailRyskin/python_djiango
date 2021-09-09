@@ -14,8 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from app_sitemap.sitemap import NewsSitemap, StaticViewSitemap
+
+sitemaps = {
+    'news': NewsSitemap,
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('housings/', include('app_housings.urls')),
+    path('news/', include('app_news.urls')),
+    path('about/', include('app_about.urls')),
+    path('contacts/', include('app_contacts.urls')),
+    path('rss/', include('app_rss.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
 ]

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{object.title}}</title>
+</head>
+<body>
+<h4>{{ object.title }}</h4>
+<p>номер в каталоге: {{ object.id }}</p>
+<p>подробная информация: {{ object.description }}</p>
+<p>цена: {{ object.price }}</p>
+<p>тип жилья: {{ object.type.type }}</p>
+<p>количество комнат: {{ object.rooms_quantity.quantity }}</p>
+<a href="{% url 'housing_list' %}">Вернуться к списку жилья</a>
+</body>
+</html>

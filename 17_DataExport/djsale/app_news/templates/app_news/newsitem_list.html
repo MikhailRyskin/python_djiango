@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+<h2>Новости</h2>
+{% if object_list %}
+<ul>
+{% for newsitem in object_list %}
+  <li>
+    <a href="{% url 'newsitem_detail' pk=newsitem.pk %}">{{ newsitem.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>Новостей нет.</p>
+{% endif %}
+</body>
+</html>

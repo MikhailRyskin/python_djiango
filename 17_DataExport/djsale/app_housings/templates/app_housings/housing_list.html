@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+<h2>Жильё</h2>
+{% if object_list %}
+<ul>
+{% for housing in object_list %}
+  <li>
+    <a href="{% url 'housing_detail' pk=housing.pk %}">{{housing.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>Нет предложений жилья.</p>
+{% endif %}
+</body>
+</html>
